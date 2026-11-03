@@ -1,0 +1,61 @@
+# --- Godot 4 ---
+.godot/
+.nomedia
+/android/
+*.translation
+export_presets.cfg
+export_credentials.cfg
+
+# Godot 3 leftovers
+.import/
+*.import.bak
+
+# Mono / C#
+.mono/
+data_*/
+mono_crash.*.json
+*.csproj.user
+bin/
+obj/
+
+# Builds / exports
+build/
+builds/
+export/
+exports/
+*.exe
+*.pck
+*.dmg
+*.app/
+*.x86_64
+*.apk
+*.aab
+
+# --- macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# --- Windows ---
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# --- Linux ---
+*~
+.directory
+.Trash-*
+.nfs*
+
+# --- Editors ---
+.vscode/
+.idea/
+*.swp
+*.swo
