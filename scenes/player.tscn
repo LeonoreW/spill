@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://djidrcfi0bvrp"]
+[gd_scene load_steps=33 format=3 uid="uid://djidrcfi0bvrp"]
 
 [ext_resource type="Texture2D" uid="uid://fajmx25a4j10" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c1f5ww4sa12ud" path="res://scripts/player.gd" id="1_g2els"]
@@ -7,13 +7,25 @@
 atlas = ExtResource("1_3vyb7")
 region = Rect2(192, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf23h"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31cv2"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(64, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(192, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -115,10 +127,24 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ke2ow")
+"texture": SubResource("AtlasTexture_pf23h")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_31cv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt7fs")
+}],
+"loop": false,
+"name": &"crouch_jump",
+"speed": 7.25
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ujl30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke2ow")
 }],
 "loop": true,
 "name": &"crouch_walk",
@@ -217,8 +243,8 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"crouch"
-frame_progress = 0.07649796
+animation = &"crouch_walk"
+frame_progress = 0.70707613
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
