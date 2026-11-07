@@ -1,14 +1,15 @@
-[gd_scene load_steps=22 format=4 uid="uid://dd100dn5sseno"]
+[gd_scene load_steps=23 format=4 uid="uid://dd100dn5sseno"]
 
 [ext_resource type="Script" uid="uid://ceu5k2fmcy42" path="res://scripts/game_manager.gd" id="1_1i1cq"]
 [ext_resource type="PackedScene" uid="uid://djidrcfi0bvrp" path="res://scenes/player.tscn" id="1_4xv8f"]
 [ext_resource type="Texture2D" uid="uid://cf6thj11trgx7" path="res://assets/sprites/world_tileset.png" id="2_tybnv"]
-[ext_resource type="PackedScene" uid="uid://dhtsux0riuci5" path="res://scenes/platform.tscn" id="3_1kq6y"]
+[ext_resource type="PackedScene" uid="uid://dhtsux0riuci5" path="res://scenes/platform.grønn.tscn" id="3_1kq6y"]
 [ext_resource type="PackedScene" uid="uid://d1vf5p3y3pjhl" path="res://scenes/killzone.tscn" id="3_nab8m"]
 [ext_resource type="PackedScene" uid="uid://be8s6aiv1ijrc" path="res://scenes/coin.tscn" id="4_ibt2d"]
 [ext_resource type="PackedScene" uid="uid://bdjtmshncjri6" path="res://scenes/slime.tscn" id="6_aljig"]
 [ext_resource type="FontFile" uid="uid://gihdwgpo78ep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_1i1cq"]
 [ext_resource type="FontFile" uid="uid://dto5tbilyk1b6" path="res://assets/fonts/PixelOperator8.ttf" id="7_ih4or"]
+[ext_resource type="PackedScene" uid="uid://ddbdno7fgxg5g" path="res://scenes/platform.blå.tscn" id="9_xvpbn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kq6y"]
 texture = ExtResource("2_tybnv")
@@ -216,24 +217,9 @@ _data = {
 &"move": SubResource("Animation_1kq6y")
 }
 
-[sub_resource type="Animation" id="Animation_aljig"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(512, -43)]
-}
-
-[sub_resource type="Animation" id="Animation_nab8m"]
+[sub_resource type="Animation" id="Animation_xvpbn"]
 resource_name = "move"
-length = 2.5
+length = 2.0
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -242,19 +228,13 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 2.2666667),
+"times": PackedFloat32Array(0.2, 1.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(512, 37), Vector2(512, -43)]
+"values": [Vector2(352, 37), Vector2(448, 37)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aljig"]
-_data = {
-&"RESET": SubResource("Animation_aljig"),
-&"move": SubResource("Animation_nab8m")
-}
-
-[sub_resource type="Animation" id="Animation_dmqp2"]
+[sub_resource type="Animation" id="Animation_mowqa"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -269,9 +249,15 @@ tracks/0/keys = {
 "values": [Vector2(352, 37)]
 }
 
-[sub_resource type="Animation" id="Animation_ih4or"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_llfsb"]
+_data = {
+&"RESET": SubResource("Animation_mowqa"),
+&"move": SubResource("Animation_xvpbn")
+}
+
+[sub_resource type="Animation" id="Animation_qku33"]
 resource_name = "move"
-length = 2.0
+length = 2.5
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -280,16 +266,31 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.16666667, 1.8666667),
+"times": PackedFloat32Array(0.2, 2.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(352, 37), Vector2(448, 37)]
+"values": [Vector2(512, -43), Vector2(512, 37)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1i1cq"]
+[sub_resource type="Animation" id="Animation_8u4wi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(512, -43)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3bn1p"]
 _data = {
-&"RESET": SubResource("Animation_dmqp2"),
-&"move": SubResource("Animation_ih4or")
+&"RESET": SubResource("Animation_8u4wi"),
+&"move": SubResource("Animation_qku33")
 }
 
 [node name="game" type="Node2D"]
@@ -467,21 +468,21 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="platform2" parent="platformes" instance=ExtResource("3_1kq6y")]
-position = Vector2(512, -43)
+[node name="platform_variant1" parent="platformes" instance=ExtResource("9_xvpbn")]
+position = Vector2(352, 37)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platformes/platform2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platformes/platform_variant1"]
 libraries = {
-&"": SubResource("AnimationLibrary_aljig")
+&"": SubResource("AnimationLibrary_llfsb")
 }
 autoplay = "move"
 
-[node name="platform3" parent="platformes" instance=ExtResource("3_1kq6y")]
-position = Vector2(352, 37)
+[node name="platform_variant2" parent="platformes" instance=ExtResource("9_xvpbn")]
+position = Vector2(512, -43)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platformes/platform3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platformes/platform_variant2"]
 libraries = {
-&"": SubResource("AnimationLibrary_1i1cq")
+&"": SubResource("AnimationLibrary_3bn1p")
 }
 autoplay = "move"
 
