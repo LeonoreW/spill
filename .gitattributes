@@ -1,11 +1,2 @@
-# Normalize line endings across mac/win/linux
+# Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
-
-# Binary assets
-*.png binary
-*.jpg binary
-*.wav binary
-*.mp3 binary
-*.ogg binary
-*.ttf binary
-*.otf binary
