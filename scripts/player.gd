@@ -28,6 +28,9 @@ func _physics_process(delta: float) -> void:
 	elif direction <0:
 		animated_sprite.flip_h = true
 		
+	if Engine.time_scale == 0.5:
+		animated_sprite.play('death')
+	
 		
 	if Input.is_action_pressed("crouch"):
 		SPEED = 80.0
