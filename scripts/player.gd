@@ -54,8 +54,8 @@ func _physics_process(delta: float) -> void:
 			JUMP_VELOCITY = -300.0
 			animated_sprite.play('jump')
 		
-
-		
+	if Engine.time_scale == 0.5:
+		animated_sprite.play('death')
 		
 	
 	# apply movement
