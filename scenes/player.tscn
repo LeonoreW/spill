@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://fajmx25a4j10" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c1f5ww4sa12ud" path="res://scripts/player.gd" id="1_g2els"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqfne"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(192, 160, 32, 32)
 
@@ -119,7 +119,7 @@ region = Rect2(224, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l71n6")
+"texture": SubResource("AtlasTexture_wqfne")
 }],
 "loop": true,
 "name": &"crouch",
@@ -243,8 +243,8 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"crouch_walk"
-frame_progress = 0.70707613
+animation = &"crouch"
+frame_progress = 0.8646602
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)

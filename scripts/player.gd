@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		
 		
 	if Input.is_action_pressed("crouch"):
-		SPEED = 80.0
+		SPEED = 60.0
 		if is_on_floor():
 			if direction == 0:
 				animated_sprite.play('crouch')
