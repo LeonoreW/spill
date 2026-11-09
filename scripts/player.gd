@@ -5,6 +5,7 @@ var SPEED = 130.0
 var JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var gravity = ProjectSettings.get_setting('physics/2d/default_gravity')
 
@@ -16,8 +17,9 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		animation_player.play('JumpSound')
 
-
+	
 
 	# gets the input direction: 1, 0,-1
 	var direction := Input.get_axis("move_left", "move_right")
