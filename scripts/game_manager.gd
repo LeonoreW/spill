@@ -5,4 +5,4 @@ var score = 0
 
 func add_point():
 	score += 1
-	score_label.text = 'you collected ' + str(score) + ' / 13 coins!'
+	score_label.text = 'you collected ' + str(score) + ' / 16 coins!'
