@@ -6,8 +6,9 @@ var JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var collision_shape_2d_2: CollisionShape2D = $CollisionShape2D2
+@onready var collision_shape_normal: CollisionShape2D = $CollisionShapeNormal
+@onready var collision_shape_small: CollisionShape2D = $CollisionShapeSmall
+
 
 var gravity = ProjectSettings.get_setting('physics/2d/default_gravity')
 

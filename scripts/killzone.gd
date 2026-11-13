@@ -7,7 +7,8 @@ func _on_body_entered(body):
 	print('you died')
 	animation_player.play('DeathSound')
 	Engine.time_scale = 0.5
-	body.get_node('CollisionShape2D').queue_free()
+	body.get_node('CollisionShapeNormal').queue_free()
+	body.get_node('CollisionShapeSmall').queue_free()
 	timer.start()
 	
 	
